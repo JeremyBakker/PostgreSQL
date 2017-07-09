@@ -77,17 +77,15 @@ WHERE amount > 5.00;
 
 SELECT COUNT(first_name)
 FROM actor
-WHERE first_name ILIKE 'P%'
+WHERE first_name ILIKE 'P%';
 
+SELECT COUNT(DISTINCT(district)) FROM address;
 
+SELECT count(*) 
+FROM film
+WHERE rating = 'R'
+AND replacement_cost 
+BETWEEN 5.00 AND 15.00;
 
-
-
-
-
-
-
-
-
-
-
+SELECT count(*) FROM film
+WHERE title LIKE'%Truman%'
