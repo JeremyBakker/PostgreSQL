@@ -96,5 +96,32 @@ SELECT SUM(amount) FROM payment;
 
 SELECT customer_id, SUM(amount)
 FROM payment
-GROUP BY customer_id;
+GROUP BY customer_id
+ORDER BY SUM(amount) DESC;
 
+SELECT staff_id, COUNT(payment_id)
+FROM payment
+GROUP BY staff_id;
+
+SELECT rating, COUNT(rating) 
+FROM film
+GROUP BY rating
+ORDER BY COUNT(rating) DESC;
+
+SELECT rating, AVG(rental_rate)
+FROM film
+GROUP BY rating;
+
+SELECT staff_id, COUNT(payment_id), SUM(amount) 
+FROM payment
+GROUP BY staff_id;
+
+SELECT rating, ROUND(AVG(replacement_cost), 2)
+FROM film
+GROUP BY rating;
+
+SELECT customer_id, SUM(amount)
+FROM payment
+GROUP BY customer_id
+ORDER BY SUM(amount) DESC
+LIMIT 5;
