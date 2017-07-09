@@ -66,7 +66,18 @@ SELECT first_name, last_name
 FROM customer
 WHERE first_name LIKE '_her%';
 
+-- Search with ILIKE for case insensitive searches
+SELECT first_name, last_name
+FROM customer
+WHERE first_name ILIKE 'BAR%';
 
+SELECT COUNT(amount) 
+FROM payment
+WHERE amount > 5.00;
+
+SELECT COUNT(first_name)
+FROM actor
+WHERE first_name ILIKE 'P%'
 
 
 
