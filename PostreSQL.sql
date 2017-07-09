@@ -47,7 +47,24 @@ SELECT title
 FROM film
 WHERE film_id <= 5
 
+SELECT customer_id, amount FROM payment
+WHERE amount BETWEEN 8 and 9;
 
+SELECT amount, payment_date FROM payment
+WHERE payment_date BETWEEN '2007-02-07' AND '2007-02-15';
+
+SELECT customer_id, rental_id, return_date
+FROM rental
+WHERE customer_id IN (1,2)
+ORDER BY return_date DESC;
+
+SELECT first_name, last_name 
+FROM customer
+WHERE first_name LIKE 'Jen%';
+
+SELECT first_name, last_name
+FROM customer
+WHERE first_name LIKE '_her%';
 
 
 
