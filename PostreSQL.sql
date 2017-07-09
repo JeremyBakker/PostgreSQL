@@ -89,3 +89,12 @@ BETWEEN 5.00 AND 15.00;
 
 SELECT count(*) FROM film
 WHERE title LIKE'%Truman%'
+
+SELECT ROUND(AVG(amount), 2) FROM payment;
+
+SELECT SUM(amount) FROM payment;
+
+SELECT customer_id, SUM(amount)
+FROM payment
+GROUP BY customer_id;
+
