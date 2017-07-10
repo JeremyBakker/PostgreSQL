@@ -196,3 +196,19 @@ ORDER BY title;
 SELECT title, name movie_language
 FROM film
 JOIN language lan on lan.language_id = film.language_id;
+
+SELECT film.film_id, film.title, inventory.inventory_id
+FROM film
+LEFT JOIN inventory
+ON inventory.film_id = film.film_id
+WHERE inventory.inventory_id IS NULL
+ORDER BY film.title;
+
+-- UNION combines two tables: need same number of columns with same data type
+
+SELECT SUM(amount) AS total, extract(month from payment_date) AS month
+FROM payment
+GROUP BY month
+ORDER BY total DESC
+LIMIT 1;
+
