@@ -212,3 +212,57 @@ GROUP BY month
 ORDER BY total DESC
 LIMIT 1;
 
+SELECT first_name || ' ' || last_name AS full_name
+FROM customer;
+
+SELECT upper(first_name), char_length(first_name)
+FROM customer;
+
+SELECT film_id, title, rental_rate 
+FROM film
+WHERE rental_rate > (SELECT AVG(rental_rate) FROM film);
+
+SELECT film_id, title
+FROM film
+WHERE film_id IN
+(SELECT inventory.film_id
+FROM rental
+JOIN inventory
+ON inventory.inventory_id = rental.inventory_id
+WHERE return_date BETWEEN '2005-05-29' AND '2005-05-30');
+
+SELECT e1.employee_name
+FROM employee AS e1, employee AS e2
+WHERE
+e1.employee_location = e2.employee_location
+AND e2.employee_name = 'Joe';
+
+SELECT a.customer_id, a.first_name, a.last_name, b.customer_id, b.first_name, b.last_name
+FROM customer AS a, customer AS b
+WHERE a.first_name = b.last_name
+ORDER BY a.customer_id;
+
+SELECT name, monthlymaintenance
+FROM cd. facilities;
+
+SELECT name, membercost
+FROM cd. facilities
+WHERE membercost > 0;
+
+SELECT facid, name, membercost, monthlymaintenance
+FROM cd.facilities
+WHERE membercost < monthlymaintenance/50;
+
+SELECT *
+FROM cd.facilities
+WHERE name 
+LIKE '%Tennis%';
+
+SELECT memid, surname, firstname, joindate
+FROM cd.members
+WHERE joindate >= '2012-09-01';
+
+SELECT DISTINCT(surname)
+FROM cd.members
+ORDER BY surname
+LIMIT 10;
