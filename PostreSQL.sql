@@ -266,3 +266,27 @@ SELECT DISTINCT(surname)
 FROM cd.members
 ORDER BY surname
 LIMIT 10;
+
+SELECT surname
+FROM cd.members
+ORDER BY joindate DESC
+LIMIT 1;
+
+SELECT COUNT(*)
+FROM cd.facilities
+WHERE guestcost > 10;
+
+SELECT COUNT(slots)
+FROM cd.bookings
+GROUP BY facid
+ORDER BY COUNT(slots) DESC;
+
+SELECT starttime
+FROM cd.bookings
+WHERE facid 
+IN (SELECT facid FROM cd.facilities WHERE name LIKE 'Tennis%');
+
+SELECT starttime
+FROM cd.bookings
+WHERE memid 
+IN (SELECT memid FROM cd.members WHERE firstname = 'David' AND surname = 'Farrell');
