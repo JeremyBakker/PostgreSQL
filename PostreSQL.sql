@@ -290,3 +290,11 @@ SELECT starttime
 FROM cd.bookings
 WHERE memid 
 IN (SELECT memid FROM cd.members WHERE firstname = 'David' AND surname = 'Farrell');
+
+SELECT DISTINCT e.emp_id AS 'mng_id', e.emp_name AS 'mng_name'
+FROM employees e, employees m WHERE e.emp_id = m.mng_id;
+
+SELECT e1.employee_name 
+FROM employee e1, employee e2
+WHERE e1.employee_location = e2.employee_location
+And e2.employee_name = "Joe";
